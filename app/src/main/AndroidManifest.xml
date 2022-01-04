@@ -12,7 +12,7 @@
         android:theme="@style/Theme.Teroka">
 
 
-        <activity android:name=".data.SplashScreen"
+        <activity android:name=".SplashScreen"
             android:theme="@style/SplashStyle"
             android:screenOrientation="portrait" >
             <intent-filter>
