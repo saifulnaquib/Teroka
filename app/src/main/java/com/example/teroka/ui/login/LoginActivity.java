@@ -2,9 +2,11 @@ package com.example.teroka.ui.login;
 
 import android.app.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -22,12 +24,22 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.teroka.MainActivity;
 import com.example.teroka.R;
 import com.example.teroka.ui.login.LoginViewModel;
 import com.example.teroka.ui.login.LoginViewModelFactory;
 import com.example.teroka.databinding.ActivityLoginBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
+    private EditText email, password;
+    private Button btnlogin;
+    private TextView textRegister;
 
     private LoginViewModel loginViewModel;
     private ActivityLoginBinding binding;
@@ -38,6 +50,21 @@ public class LoginActivity extends AppCompatActivity {
 
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        mAuth = FirebaseAuth.getInstance();
+        email = findViewById(R.id.username);
+        password = findViewById(R.id.password);
+        btnlogin = findViewById(R.id.login);
+        textRegister = findViewById(R.id.text_register);
+        //btnLogout = findViewById(R.id.btnLogout);
+
+        btnlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                login();
+            }
+        });
+
 
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
@@ -122,6 +149,31 @@ public class LoginActivity extends AppCompatActivity {
                         passwordEditText.getText().toString());
             }
         });
+    }
+
+    private void login() {
+        String user = email.getText().toString().trim();
+        String pass = password.getText().toString().trim();
+        if(user.isEmpty()){
+            email.setError("Email cannot be empty");
+        }
+        if(pass.isEmpty()){
+            password.setError("Password cannot be empty");
+        }
+        else{
+            mAuth.signInWithEmailAndPassword(user,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()){
+                        Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    }
+                    else{
+                        Toast.makeText(LoginActivity.this, "Login Failed"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
