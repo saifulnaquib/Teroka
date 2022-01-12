@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="text_login" type="id">text_login</item>
-    <item name="text_register" type="id">text_register</item>
+    <item name="text_login" type="id" />
+    <item name="text_register" type="id" />
+    <string name="register_here" />
+    <string name="register" />
 </resources>
