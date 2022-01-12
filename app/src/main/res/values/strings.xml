@@ -15,5 +15,14 @@
     <string name="login">Log In Now</string>
     <string name="text_register">New User Register</string>
     <string name="enter_login_credentials">Enter Login Credentials</string>
-    <string name="enter_login_credentials">Enter Login Credentials</string>
+    <string name="existing_user_login">Existing User Login</string>
+    <string name="home_page">Home</string>
+    <string name="todo">Mail button</string>
+    <string name="hello_first_fragment">Hello</string>
+    <string name="next">Next</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="previous">Previous</string>
+    <string name="new_user_register">New User? Register</string>
+    <string name="login_message">You\'re back</string>
 </resources>

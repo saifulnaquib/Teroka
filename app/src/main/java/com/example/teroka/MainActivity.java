@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-/*    FirebaseAuth mAuth;
+    FirebaseAuth mAuth;
     Button btnLogout;
 
     @Override
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 logout();
             }
-        })
+        });
     }
 
     public void onStart(){
@@ -45,5 +45,5 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(MainActivity.this, LoginActivity.class));
-    }*/
+    }
 }

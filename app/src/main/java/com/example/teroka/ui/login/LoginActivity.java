@@ -17,6 +17,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +27,7 @@ import android.widget.Toast;
 
 import com.example.teroka.MainActivity;
 import com.example.teroka.R;
+import com.example.teroka.RegisterActivity;
 import com.example.teroka.ui.login.LoginViewModel;
 import com.example.teroka.ui.login.LoginViewModelFactory;
 import com.example.teroka.databinding.ActivityLoginBinding;
@@ -39,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText email, password;
     private Button btnlogin;
-    private TextView textRegister;
+    private TextView textRegister, textForgot;
 
     private LoginViewModel loginViewModel;
     private ActivityLoginBinding binding;
@@ -47,7 +49,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        requestWindowFeature(Window.FEATURE_NO_TITLE);//will hide the title
+        getSupportActionBar().hide(); //hide the title bar
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -56,12 +59,27 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         btnlogin = findViewById(R.id.login);
         textRegister = findViewById(R.id.text_register);
+        textForgot = findViewById(R.id.forgot_password);
         //btnLogout = findViewById(R.id.btnLogout);
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 login();
+            }
+        });
+
+        textRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                register();
+            }
+        });
+
+        textForgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                register();
             }
         });
 
@@ -184,5 +202,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
+    }
+
+    public void register() {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
     }
 }
