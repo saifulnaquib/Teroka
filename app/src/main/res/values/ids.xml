@@ -3,5 +3,5 @@
     <item name="text_login" type="id" />
     <item name="text_register" type="id" />
     <string name="register_here" />
-    <string name="register" />
+
 </resources>
