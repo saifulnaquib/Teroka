@@ -30,22 +30,23 @@
         android:layout_marginStart="35dp"
         android:layout_marginEnd="35dp"
         android:background="@drawable/roundstyle"
-        android:backgroundTint="#C1FFD7"
+        android:backgroundTint="#FCFFA6"
         android:fontFamily="@font/lato"
         android:text="@string/login_text"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#41444B"
         android:textSize="24sp"
+        android:enabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/logsign_bg"
+        app:layout_constraintTop_toTopOf="@+id/wave_logsign"
         app:layout_constraintVertical_bias="0.787" />
 
     <ImageView
-        android:id="@+id/logsign_bg"
+        android:id="@+id/wave_logsign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="38dp"
@@ -56,7 +57,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/logsign_bg"
+        app:srcCompat="@drawable/wave_logsign"
         tools:ignore="ContentDescription" />
 
     <TextView
@@ -74,8 +75,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button" />
+        app:layout_constraintTop_toBottomOf="@+id/login_button"
+        app:layout_constraintVertical_bias="0.651" />
 
     <ImageView
         android:id="@+id/portfolio"

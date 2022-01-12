@@ -25,5 +25,9 @@
     <string name="previous">Previous</string>
     <string name="new_user_register">New User? Register</string>
     <string name="login_message">You\'re back</string>
+    <string name="forgot_password">Forgot Password?</string>
     <string name="register">Register</string>
+    <string name="hello">Hello =)</string>
+    <string name="username">Username</string>
+    <string name="login_command">Already a member? Login</string>
 </resources>

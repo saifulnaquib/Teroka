@@ -2,6 +2,7 @@
 <resources>
     <item name="text_login" type="id" />
     <item name="text_register" type="id" />
+    <item name="register_message" type="id" />
     <string name="register_here" />
 
 </resources>
