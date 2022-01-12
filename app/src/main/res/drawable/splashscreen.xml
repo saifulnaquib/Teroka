@@ -8,7 +8,8 @@
         android:height="450dp"
         android:gravity="center">
         <bitmap
-            android:gravity="fill_horizontal|fill_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:src="@drawable/teroka_logo" />
     </item>
 </layer-list>
