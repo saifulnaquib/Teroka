@@ -30,4 +30,12 @@
     <string name="hello">Hello =)</string>
     <string name="username">Username</string>
     <string name="login_command">Already a member? Login</string>
+
+    <string-array name="place">
+        <item>select place</item>
+        <item>Destination 1</item>
+        <item>Destination 2</item>
+        <item>Destination 3</item>
+    </string-array>
+
 </resources>

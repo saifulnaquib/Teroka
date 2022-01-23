@@ -46,6 +46,18 @@
             android:name=".RecommendationActivity"
             android:screenOrientation="portrait"></activity>
 
+        <activity
+            android:name=".PenangActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".ReviewActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".Dest1Activity"
+            android:screenOrientation="portrait"></activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
