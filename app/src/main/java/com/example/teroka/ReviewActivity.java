@@ -47,7 +47,7 @@ public class ReviewActivity extends AppCompatActivity{
     private ImageView imageView;
     private Button cancelBtn, postReviewBtn;
 
-    private String postedByName = "";
+    //private String postedByName = "";
     private DatabaseReference postedbyRef;
     private ProgressDialog loader;
     private String myUrl = "";
@@ -75,7 +75,7 @@ public class ReviewActivity extends AppCompatActivity{
         mUser = mauth.getCurrentUser();
         onlineUserID = mUser.getUid();
 
-        postedbyRef = FirebaseDatabase.getInstance().getReference().child(onlineUserID);
+        /*postedbyRef = FirebaseDatabase.getInstance().getReference().child(onlineUserID);
         postedbyRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -86,7 +86,7 @@ public class ReviewActivity extends AppCompatActivity{
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
+        });*/
 
         storageReference = FirebaseStorage.getInstance().getReference("reviews");
 
@@ -143,14 +143,14 @@ public class ReviewActivity extends AppCompatActivity{
     }
 
     String mDate = DateFormat.getDateInstance().format(new Date());
-    DatabaseReference ref = FirebaseDatabase.getInstance().getReference("reviews posts");
+    DatabaseReference ref = FirebaseDatabase.getInstance("https://teroka-3752b-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("reviews posts");
 
     private void performValidations() {
         if (getReviewText().isEmpty()){
             reviewBox.setError("Reviews Required!");
         }
         else if (getPlace().equals("select place")){
-            Toast.makeText(this, "Select a vlid place", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Select a valid place", Toast.LENGTH_SHORT).show();
         }
         else if (!getReviewText().isEmpty() && !getPlace().equals("") && imageuri == null){
             uploadAReviewwithNoImage();
@@ -181,7 +181,7 @@ public class ReviewActivity extends AppCompatActivity{
         hashmap.put("review", getReviewText());
         hashmap.put("publisher", onlineUserID);
         hashmap.put("place", getPlace());
-        hashmap.put("reviewby", postedByName);
+        //hashmap.put("reviewby", postedByName);
         hashmap.put("date",mDate);
 
         ref.child(postid).setValue(hashmap).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -227,7 +227,7 @@ public class ReviewActivity extends AppCompatActivity{
                     hashmap.put("review", getReviewText());
                     hashmap.put("publisher", onlineUserID);
                     hashmap.put("place", getPlace());
-                    hashmap.put("reviewby", postedByName);
+                    //hashmap.put("reviewby", postedByName);
                     hashmap.put("reviewimage", myUrl);
                     hashmap.put("date",mDate);
 
