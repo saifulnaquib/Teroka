@@ -14,8 +14,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class PenangActivity extends AppCompatActivity{
 
     FirebaseAuth mAuth;
-    Button btnDest1;
-    Button btnDest2;
+    Button btnHin;
+    //Button btnDest2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +23,16 @@ public class PenangActivity extends AppCompatActivity{
         setContentView(R.layout.activity_penang);
 
         mAuth = FirebaseAuth.getInstance();
-        btnDest1 = findViewById(R.id.button8);
-        btnDest2 = findViewById(R.id.button9);
+        btnHin = findViewById(R.id.explore_hin);
+        //btnDest2 = findViewById(R.id.button9);
+
+        btnHin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PenangActivity.this, Dest1Activity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -36,17 +44,4 @@ public class PenangActivity extends AppCompatActivity{
         }
 
     }
-
-    public void dest1(View view) {
-
-        Intent intent = new Intent(PenangActivity.this, Dest1Activity.class);
-        startActivity(intent);
-    }
-
-    public void dest2(View view) {
-
-        Intent intent = new Intent(PenangActivity.this, Dest1Activity.class);
-        startActivity(intent);
-    }
-
 }
