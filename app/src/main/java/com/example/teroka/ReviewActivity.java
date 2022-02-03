@@ -47,7 +47,7 @@ public class ReviewActivity extends AppCompatActivity{
     private ImageView imageView;
     private Button cancelBtn, postReviewBtn;
 
-    //private String postedByName = "";
+    private String postedByName = "";
     private DatabaseReference postedbyRef;
     private ProgressDialog loader;
     private String myUrl = "";
@@ -75,18 +75,18 @@ public class ReviewActivity extends AppCompatActivity{
         mUser = mauth.getCurrentUser();
         onlineUserID = mUser.getUid();
 
-        /*postedbyRef = FirebaseDatabase.getInstance().getReference().child(onlineUserID);
+        postedbyRef = FirebaseDatabase.getInstance().getReference("users").child(onlineUserID);
         postedbyRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                postedByName = snapshot.child("fullname").getValue(String.class);
+                postedByName = snapshot.child("username").getValue(String.class);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });*/
+        });
 
         storageReference = FirebaseStorage.getInstance().getReference("reviews");
 
@@ -97,7 +97,7 @@ public class ReviewActivity extends AppCompatActivity{
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (spinner.getSelectedItem().equals("select place")){
+                if (spinner.getSelectedItem().equals("Select Place")){
                     Toast.makeText(ReviewActivity.this, "Please select a valid place", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -143,7 +143,7 @@ public class ReviewActivity extends AppCompatActivity{
     }
 
     String mDate = DateFormat.getDateInstance().format(new Date());
-    DatabaseReference ref = FirebaseDatabase.getInstance("https://teroka-3752b-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("reviews posts");
+    DatabaseReference ref = FirebaseDatabase.getInstance().getReference("reviews posts");
 
     private void performValidations() {
         if (getReviewText().isEmpty()){
@@ -181,7 +181,7 @@ public class ReviewActivity extends AppCompatActivity{
         hashmap.put("review", getReviewText());
         hashmap.put("publisher", onlineUserID);
         hashmap.put("place", getPlace());
-        //hashmap.put("reviewby", postedByName);
+        hashmap.put("reviewby", postedByName);
         hashmap.put("date",mDate);
 
         ref.child(postid).setValue(hashmap).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -227,7 +227,7 @@ public class ReviewActivity extends AppCompatActivity{
                     hashmap.put("review", getReviewText());
                     hashmap.put("publisher", onlineUserID);
                     hashmap.put("place", getPlace());
-                    //hashmap.put("reviewby", postedByName);
+                    hashmap.put("reviewby", postedByName);
                     hashmap.put("reviewimage", myUrl);
                     hashmap.put("date",mDate);
 

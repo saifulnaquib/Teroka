@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "161607923162",
+    "project_id": "teroka-22a85",
+    "storage_bucket": "teroka-22a85.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:161607923162:android:21d57ed18d4ffb03593ce3",
+        "android_client_info": {
+          "package_name": "com.example.teroka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "161607923162-v14cgqds4ugb2euf91l936f84hr2nqbl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.teroka",
+            "certificate_hash": "93ac67c14ed9c9b7350654de24b1d89dd0f41e92"
+          }
+        },
+        {
+          "client_id": "161607923162-fhtecntr40ahnei91qqnufs4lu0u398p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBF8cvoQHaz74qR5PMz1zicKYERrd6OpJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "161607923162-fhtecntr40ahnei91qqnufs4lu0u398p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

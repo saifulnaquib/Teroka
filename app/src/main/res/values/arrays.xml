@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="place">Place</string-array>
+    <string-array name="place">
+        <item>Select Place</item>
+        <item>Hin Bus Depot</item>
+        <item>Avatar Secret Garden</item>
+        <item>Kampong Agong</item>
+        <item>Penang ATV Eco Balik Pulau</item>
+    </string-array>
 </resources>

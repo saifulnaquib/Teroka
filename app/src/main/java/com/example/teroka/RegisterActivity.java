@@ -91,10 +91,10 @@ public class RegisterActivity extends AppCompatActivity {
                                 Toast.makeText(RegisterActivity.this, "Registration failed " + task.getException().toString(), Toast.LENGTH_SHORT).show();
                             }else {
                                 onlineUserID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-                                reference = FirebaseDatabase.getInstance("https://teroka-3752b-default-rtdb.asia-southeast1.firebasedatabase.app").getReference().child("users").child(onlineUserID);
+                                reference = FirebaseDatabase.getInstance().getReference().child("users").child(onlineUserID);
                                 Map hashMap = new HashMap();
                                 hashMap.put("username", userName);
-                                //hashMap.put("id", onlineUserID);
+                                hashMap.put("id", onlineUserID);
                                 hashMap.put("email", emailText);
                                 reference.updateChildren(hashMap).addOnCompleteListener(task1 -> {
                                     if (task1.isSuccessful()){
