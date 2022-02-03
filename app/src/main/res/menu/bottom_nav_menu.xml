@@ -6,6 +6,7 @@
         android:id="@+id/home"
         android:title="@string/home"
         android:icon="@drawable/ic_home"
+        android:iconTint="#557359"
         />
 
     <item

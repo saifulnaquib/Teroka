@@ -57,7 +57,7 @@
             android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name=".Dest1Activity"
+            android:name=".HinActivity"
             android:screenOrientation="portrait"></activity>
 
         <meta-data

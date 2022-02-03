@@ -22,6 +22,7 @@
         <entry key="..\:/Users/Win10/AndroidStudioProjects/TerokaBagus/app/src/main/res/drawable/custom_input.xml" value="0.2703125" />
         <entry key="..\:/Users/Win10/AndroidStudioProjects/TerokaBagus/app/src/main/res/drawable/gradient_1.xml" value="0.2703125" />
         <entry key="..\:/Users/Win10/AndroidStudioProjects/TerokaBagus/app/src/main/res/drawable/gradient_logsign.xml" value="0.2703125" />
+        <entry key="..\:/Users/Win10/AndroidStudioProjects/TerokaBagus/app/src/main/res/drawable/ic_baseline_arrow_circle_up_24.xml" value="0.2703125" />
         <entry key="..\:/Users/Win10/AndroidStudioProjects/TerokaBagus/app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.2703125" />
         <entry key="..\:/Users/Win10/AndroidStudioProjects/TerokaBagus/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.2703125" />
         <entry key="..\:/Users/Win10/AndroidStudioProjects/TerokaBagus/app/src/main/res/drawable/ic_home.xml" value="0.14635416666666667" />
@@ -38,11 +39,12 @@
         <entry key="..\:/Users/Win10/AndroidStudioProjects/TerokaBagus/app/src/main/res/layout-w936dp/activity_login.xml" value="0.190625" />
         <entry key="..\:/Users/Win10/AndroidStudioProjects/TerokaBagus/app/src/main/res/layout/activity_dest1.xml" value="0.24456521739130435" />
         <entry key="..\:/Users/Win10/AndroidStudioProjects/TerokaBagus/app/src/main/res/layout/activity_forgotpassword.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Win10/AndroidStudioProjects/TerokaBagus/app/src/main/res/layout/activity_hin.xml" value="0.17481884057971014" />
         <entry key="..\:/Users/Win10/AndroidStudioProjects/TerokaBagus/app/src/main/res/layout/activity_log_sign.xml" value="0.264" />
         <entry key="..\:/Users/Win10/AndroidStudioProjects/TerokaBagus/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/Win10/AndroidStudioProjects/TerokaBagus/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Win10/AndroidStudioProjects/TerokaBagus/app/src/main/res/layout/activity_main2.xml" value="0.17481884057971014" />
-        <entry key="..\:/Users/Win10/AndroidStudioProjects/TerokaBagus/app/src/main/res/layout/activity_penang.xml" value="0.4" />
+        <entry key="..\:/Users/Win10/AndroidStudioProjects/TerokaBagus/app/src/main/res/layout/activity_penang.xml" value="0.17481884057971014" />
         <entry key="..\:/Users/Win10/AndroidStudioProjects/TerokaBagus/app/src/main/res/layout/activity_planner.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Win10/AndroidStudioProjects/TerokaBagus/app/src/main/res/layout/activity_recommendation.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Win10/AndroidStudioProjects/TerokaBagus/app/src/main/res/layout/activity_register.xml" value="0.264" />
