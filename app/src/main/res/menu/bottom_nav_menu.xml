@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:title="@string/home"
+        android:icon="@drawable/ic_home"
+        android:iconTint="#557359"
+        />
+
+    <item
+        android:id="@+id/suggestion"
+        android:title="Suggestion"
+        android:icon="@drawable/ic_suggestion"
+        />
+
+    <item
+        android:id="@+id/map"
+        android:title="Map"
+        android:icon="@drawable/ic_map"
+        />
+
+    <item
+        android:id="@+id/planner"
+        android:title="Planner"
+        android:icon="@drawable/ic_planner"
+        />
+
+    <item
+        android:id="@+id/logout"
+        android:title="Log Out"
+        android:icon="@drawable/ic_baseline_exit_to_app_24"
+        />
+</menu>
