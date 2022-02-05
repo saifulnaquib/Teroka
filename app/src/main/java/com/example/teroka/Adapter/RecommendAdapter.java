@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.teroka.CommentsActivity;
-import com.example.teroka.Model.Post;
+import com.example.teroka.Model.RPost;
 import com.example.teroka.Model.User;
 import com.example.teroka.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,13 +28,13 @@ import com.ms.square.android.expandabletextview.ExpandableTextView;
 
 import java.util.List;
 
-public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
+public class RecommendAdapter extends RecyclerView.Adapter<RecommendAdapter.ViewHolder>{
 
     public Context mContext;
-    public List<Post> mPostList;
+    public List<RPost> mPostList;
     private FirebaseUser firebaseUser;
 
-    public PostAdapter(Context mContext, List<Post> mPostList) {
+    public RecommendAdapter(Context mContext, List<RPost> mPostList) {
         this.mContext = mContext;
         this.mPostList = mPostList;
     }
@@ -42,20 +42,20 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.review_retrieved_layout, parent, false);
-        return new PostAdapter.ViewHolder(view);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.recommend_retrieved_layout, parent, false);
+        return new RecommendAdapter.ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        final Post post = mPostList.get(position);
-        if (post.getReviewimage() == null){
+        final RPost post = mPostList.get(position);
+        if (post.getRecommendimage() == null){
             holder.reviewImage.setVisibility(View.GONE);
         }
         holder.reviewImage.setVisibility(View.VISIBLE);
-        Glide.with(mContext).load(post.getReviewimage()).into(holder.reviewImage);
-        holder.expandable_text.setText(post.getReview());
+        Glide.with(mContext).load(post.getRecommendimage()).into(holder.reviewImage);
+        holder.expandable_text.setText(post.getRecommendation());
         holder.placeTextView.setText(post.getPlace());
         holder.reviewOnTextView.setText(post.getDate());
 
@@ -68,14 +68,14 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
         holder.like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (holder.like.getTag().equals("like") && holder.dislike.getTag().equals("dislike")){
-                    FirebaseDatabase.getInstance().getReference().child("likes").child(post.getPostid()).child(firebaseUser.getUid()).setValue(true);
+                if (holder.like.getTag().equals("Rlike") && holder.dislike.getTag().equals("Rdislike")){
+                    FirebaseDatabase.getInstance().getReference().child("Rlikes").child(post.getPostid()).child(firebaseUser.getUid()).setValue(true);
                 }
-                else if (holder.like.getTag().equals("like") && holder.dislike.getTag().equals("disliked")){
-                    FirebaseDatabase.getInstance().getReference().child("dislikes").child(post.getPostid()).child(firebaseUser.getUid()).removeValue();
-                    FirebaseDatabase.getInstance().getReference().child("likes").child(post.getPostid()).child(firebaseUser.getUid()).setValue(true);
+                else if (holder.like.getTag().equals("Rlike") && holder.dislike.getTag().equals("Rdisliked")){
+                    FirebaseDatabase.getInstance().getReference().child("Rdislikes").child(post.getPostid()).child(firebaseUser.getUid()).removeValue();
+                    FirebaseDatabase.getInstance().getReference().child("Rlikes").child(post.getPostid()).child(firebaseUser.getUid()).setValue(true);
                 }else {
-                    FirebaseDatabase.getInstance().getReference().child("likes").child(post.getPostid()).child(firebaseUser.getUid()).removeValue();
+                    FirebaseDatabase.getInstance().getReference().child("Rlikes").child(post.getPostid()).child(firebaseUser.getUid()).removeValue();
                 }
             }
         });
@@ -83,13 +83,13 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
         holder.dislike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (holder.dislike.getTag().equals("dislike") && holder.like.getTag().equals("like")){
-                    FirebaseDatabase.getInstance().getReference().child("dislikes").child(post.getPostid()).child(firebaseUser.getUid()).setValue(true);
-                }else if (holder.dislike.getTag().equals("dislike") && holder.like.getTag().equals("liked")){
-                    FirebaseDatabase.getInstance().getReference().child("likes").child(post.getPostid()).child(firebaseUser.getUid()).removeValue();
-                    FirebaseDatabase.getInstance().getReference().child("dislikes").child(post.getPostid()).child(firebaseUser.getUid()).setValue(true);
+                if (holder.dislike.getTag().equals("Rdislike") && holder.like.getTag().equals("Rlike")){
+                    FirebaseDatabase.getInstance().getReference().child("Rdislikes").child(post.getPostid()).child(firebaseUser.getUid()).setValue(true);
+                }else if (holder.dislike.getTag().equals("Rdislike") && holder.like.getTag().equals("Rliked")){
+                    FirebaseDatabase.getInstance().getReference().child("Rlikes").child(post.getPostid()).child(firebaseUser.getUid()).removeValue();
+                    FirebaseDatabase.getInstance().getReference().child("Rdislikes").child(post.getPostid()).child(firebaseUser.getUid()).setValue(true);
                 }else {
-                    FirebaseDatabase.getInstance().getReference().child("dislikes").child(post.getPostid()).child(firebaseUser.getUid()).removeValue();
+                    FirebaseDatabase.getInstance().getReference().child("Rdislikes").child(post.getPostid()).child(firebaseUser.getUid()).removeValue();
                 }
             }
         });
@@ -147,13 +147,13 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
         }
     }
 
-    private void publisherInformation(TextView reviewby, String userid){
+    private void publisherInformation(TextView recommendby, String userid){
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users").child(userid);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User user = snapshot.getValue(User.class);
-                reviewby.setText(user.getUsername());
+                recommendby.setText(user.getUsername());
             }
 
             @Override
@@ -165,17 +165,17 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
 
     private void isLiked(String postid, ImageView imageView){
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("likes").child(postid);
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Rlikes").child(postid);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.child(firebaseUser.getUid()).exists()){
                     imageView.setImageResource(R.drawable.ic_liked);
-                    imageView.setTag("liked");
+                    imageView.setTag("Rliked");
                 }
                 else {
                     imageView.setImageResource(R.drawable.ic_like);
-                    imageView.setTag("like");
+                    imageView.setTag("Rlike");
                 }
             }
 
@@ -188,17 +188,17 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
 
     private void isDisliked(String postid, ImageView imageView){
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("dislikes").child(postid);
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Rdislikes").child(postid);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.child(firebaseUser.getUid()).exists()){
                     imageView.setImageResource(R.drawable.ic_disliked);
-                    imageView.setTag("disliked");
+                    imageView.setTag("Rdisliked");
                 }
                 else {
                     imageView.setImageResource(R.drawable.ic_dislike);
-                    imageView.setTag("dislike");
+                    imageView.setTag("Rdislike");
                 }
             }
 
@@ -210,7 +210,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
     }
 
     private void getLikes(TextView likes, String postid){
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("likes").child(postid);
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Rlikes").child(postid);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -233,7 +233,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
     }
 
     private void getDislikes(TextView dislikes, String postid){
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("dislikes").child(postid);
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Rdislikes").child(postid);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

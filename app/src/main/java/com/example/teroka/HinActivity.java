@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +25,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dest1Activity extends AppCompatActivity{
+public class HinActivity extends AppCompatActivity{
+
+    ImageView backButton;
 
     private TextView review, reviewList;
 
@@ -39,9 +42,11 @@ public class Dest1Activity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dest1);
+        setContentView(R.layout.activity_hin);
 
-        review = findViewById(R.id.textView9);
+        review = findViewById(R.id.click_review);
+        backButton = findViewById(R.id.back_button);
+
         progress_circular = findViewById(R.id.progress_circular);
         recyclerView = findViewById(R.id.recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -50,26 +55,33 @@ public class Dest1Activity extends AppCompatActivity{
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(linearLayoutManager);
 
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HinActivity.this, PenangActivity.class);
+                startActivity(intent);
+            }
+        });
 
         review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Dest1Activity.this, ReviewActivity.class);
+                Intent intent = new Intent(HinActivity.this, ReviewActivity.class);
                 startActivity(intent);
             }
         });
 
         postList = new ArrayList<>();
-        postAdapter = new PostAdapter(Dest1Activity.this, postList);
+        postAdapter = new PostAdapter(HinActivity.this, postList);
         recyclerView.setAdapter(postAdapter);
 
         if (getIntent().getExtras() != null){
             place = getIntent().getStringExtra("place");
-            getSupportActionBar().setTitle(place);
+            //getSupportActionBar().setTitle(place);
 
             readPosts();
         }
-        
+
         //readReviewsPosts();
 
     }
@@ -90,7 +102,7 @@ public class Dest1Activity extends AppCompatActivity{
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(Dest1Activity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(HinActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -112,8 +124,9 @@ public class Dest1Activity extends AppCompatActivity{
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(Dest1Activity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(HinActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }*/
+
 }

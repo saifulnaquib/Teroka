@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dest1Activity extends AppCompatActivity{
+public class Dest2Activity extends AppCompatActivity{
 
     private TextView review, reviewList;
 
@@ -54,13 +54,13 @@ public class Dest1Activity extends AppCompatActivity{
         review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Dest1Activity.this, ReviewActivity.class);
+                Intent intent = new Intent(Dest2Activity.this, ReviewActivity.class);
                 startActivity(intent);
             }
         });
 
         postList = new ArrayList<>();
-        postAdapter = new PostAdapter(Dest1Activity.this, postList);
+        postAdapter = new PostAdapter(Dest2Activity.this, postList);
         recyclerView.setAdapter(postAdapter);
 
         if (getIntent().getExtras() != null){
@@ -69,7 +69,7 @@ public class Dest1Activity extends AppCompatActivity{
 
             readPosts();
         }
-        
+
         //readReviewsPosts();
 
     }
@@ -90,7 +90,7 @@ public class Dest1Activity extends AppCompatActivity{
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(Dest1Activity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Dest2Activity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

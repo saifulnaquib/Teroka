@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="42dp"
         android:fontFamily="@font/roboto_slab_thin"
-        android:text="Review"
+        android:text="Recommend"
         android:textColor="@color/black"
         android:textSize="48dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,15 +36,18 @@
         app:srcCompat="@drawable/wave_review"
         tools:ignore="ContentDescription" />
 
-    <Spinner
-        android:id="@+id/spinner"
+
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:entries="@array/place"
-        android:minHeight="48dp"
+        android:hint="Enter place name"
+        android:maxLength="200"
+        android:textColor="#881d16"
+        android:textColorLink="#881d16"
+        android:id="@+id/placetext"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        android:padding="10dp"/>
 
     <EditText
         android:id="@+id/review_text"
@@ -52,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:ems="10"
-        android:hint="Enter your review here"
+        android:hint="Enter your recommendation here"
         android:inputType="textPersonName"
         android:background="@drawable/custom_input"
         android:drawablePadding="12dp"
@@ -62,7 +65,7 @@
         android:selectAllOnFocus="true"
         android:textColor="#000039"
         android:textColorHint="#100c08"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintTop_toBottomOf="@+id/placetext"
         tools:layout_editor_absoluteX="21dp" />
 
     <ImageView

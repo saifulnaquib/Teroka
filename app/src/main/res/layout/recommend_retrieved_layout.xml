@@ -21,16 +21,16 @@
                 android:id="@+id/review_by_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="review by"
-                android:textStyle="bold"
-                android:textSize="15dp"
-                android:textColor="#000"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp" />
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="recommended by"
+                android:textColor="#000"
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
-    
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
                 android:id="@+id/placeTextView"
                 android:textSize="12dp"
                 android:textStyle="bold" />
-            
+
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -146,7 +146,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                
+
                 <TextView
                     android:id="@+id/likes"
                     android:layout_width="0dp"
@@ -170,7 +170,7 @@
                     android:layout_height="wrap_content"
                     android:text="view all comments"
                     android:textColor="#000"/>
-                
+
             </LinearLayout>
 
         </LinearLayout>

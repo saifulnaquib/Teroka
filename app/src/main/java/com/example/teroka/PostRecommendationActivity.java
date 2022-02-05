@@ -38,10 +38,10 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
-public class ReviewActivity extends AppCompatActivity{
+public class PostRecommendationActivity extends AppCompatActivity{
 
     private Spinner spinner;
-    private EditText reviewBox;
+    private EditText reviewBox, placeBox;
     private ImageView imageView;
     private Button cancelBtn, postReviewBtn;
 
@@ -60,9 +60,10 @@ public class ReviewActivity extends AppCompatActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_review);
+        setContentView(R.layout.activity_postrecommendation);
 
         spinner = findViewById(R.id.spinner);
+        placeBox = findViewById(R.id.placetext);
         reviewBox = findViewById(R.id.review_text);
         imageView = findViewById(R.id.imageView3);
         cancelBtn = findViewById(R.id.button10);
@@ -86,8 +87,8 @@ public class ReviewActivity extends AppCompatActivity{
             }
         });
 
-        storageReference = FirebaseStorage.getInstance().getReference("reviews");
-
+        storageReference = FirebaseStorage.getInstance().getReference("recommendation");
+/*
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.place));
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -96,7 +97,7 @@ public class ReviewActivity extends AppCompatActivity{
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (spinner.getSelectedItem().equals("Select Place")){
-                    Toast.makeText(ReviewActivity.this, "Please select a valid place", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PostRecommendationActivity.this, "Please select a valid place", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -105,7 +106,7 @@ public class ReviewActivity extends AppCompatActivity{
 
             }
         });
-
+*/
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -137,15 +138,16 @@ public class ReviewActivity extends AppCompatActivity{
     }
 
     String getPlace(){
-        return spinner.getSelectedItem().toString();
+        //return spinner.getSelectedItem().toString();
+        return placeBox.getText().toString().trim();
     }
 
     String mDate = DateFormat.getDateInstance().format(new Date());
-    DatabaseReference ref = FirebaseDatabase.getInstance().getReference("reviews posts");
+    DatabaseReference ref = FirebaseDatabase.getInstance().getReference("recommendations posts");
 
     private void performValidations() {
         if (getReviewText().isEmpty()){
-            reviewBox.setError("Reviews Required!");
+            reviewBox.setError("Recommendation Required!");
         }
         else if (getPlace().equals("select place")){
             Toast.makeText(this, "Select a valid place", Toast.LENGTH_SHORT).show();
@@ -159,7 +161,7 @@ public class ReviewActivity extends AppCompatActivity{
     }
 
     private void startLoader(){
-        loader.setMessage("Uploading your review");
+        loader.setMessage("Uploading your recommendation");
         loader.setCanceledOnTouchOutside(false);
         loader.show();
     }
@@ -176,23 +178,23 @@ public class ReviewActivity extends AppCompatActivity{
 
         HashMap<String, Object> hashmap = new HashMap<>();
         hashmap.put("postid", postid);
-        hashmap.put("review", getReviewText());
+        hashmap.put("recommendation", getReviewText());
         hashmap.put("publisher", onlineUserID);
         hashmap.put("place", getPlace());
-        hashmap.put("reviewby", postedByName);
+        hashmap.put("recommendby", postedByName);
         hashmap.put("date",mDate);
 
         ref.child(postid).setValue(hashmap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
-                    Toast.makeText(ReviewActivity.this, "Review Posted Successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PostRecommendationActivity.this, "Recommendation Posted Successfully", Toast.LENGTH_SHORT).show();
                     loader.dismiss();
-                    startActivity(new Intent(ReviewActivity.this, HinActivity.class));
+                    startActivity(new Intent(PostRecommendationActivity.this, MainActivity.class));
                     finish();
                 }
                 else{
-                    Toast.makeText(ReviewActivity.this, "Could not upload image" + task.getException().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PostRecommendationActivity.this, "Could not upload image" + task.getException().toString(), Toast.LENGTH_SHORT).show();
                     loader.dismiss();
                 }
             }
@@ -222,24 +224,24 @@ public class ReviewActivity extends AppCompatActivity{
 
                     HashMap<String, Object> hashmap = new HashMap<>();
                     hashmap.put("postid", postid);
-                    hashmap.put("review", getReviewText());
+                    hashmap.put("recommendation", getReviewText());
                     hashmap.put("publisher", onlineUserID);
                     hashmap.put("place", getPlace());
-                    hashmap.put("reviewby", postedByName);
-                    hashmap.put("reviewimage", myUrl);
+                    hashmap.put("recommendby", postedByName);
+                    hashmap.put("recommendimage", myUrl);
                     hashmap.put("date",mDate);
 
                     ref.child(postid).setValue(hashmap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()){
-                                Toast.makeText(ReviewActivity.this, "Review Posted Successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PostRecommendationActivity.this, "Recommendation Posted Successfully", Toast.LENGTH_SHORT).show();
                                 loader.dismiss();
-                                startActivity(new Intent(ReviewActivity.this, HinActivity.class));
+                                startActivity(new Intent(PostRecommendationActivity.this, MainActivity.class));
                                 finish();
                             }
                             else {
-                                Toast.makeText(ReviewActivity.this, "Could not upload image" + task.getException().toString(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PostRecommendationActivity.this, "Could not upload image" + task.getException().toString(), Toast.LENGTH_SHORT).show();
                                 loader.dismiss();
                             }
                         }

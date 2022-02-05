@@ -38,7 +38,7 @@
                 android:id="@+id/penang_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="30dp"
                 android:layout_marginTop="42dp"
                 android:layout_toRightOf="@id/search_button"
                 android:fontFamily="@font/roboto_slab_thin"

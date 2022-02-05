@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CommentsActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            android:background="#881d16"
+            android:elevation="4dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bottom"
+                android:background="#ffffff"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:layout_marginRight="5dp"
+                android:layout_alignParentBottom="true">
+
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Write your comment"
+                    android:maxLength="200"
+                    android:textColor="#881d16"
+                    android:textColorLink="#881d16"
+                    android:id="@+id/adding_comment"
+                    android:padding="10dp"/>
+
+                <Button
+                    android:id="@+id/commenting_post_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="POST"
+                    android:textColor="#ffffff"
+                    android:background="#881d16"
+                    android:layout_marginLeft="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="18sp"/>
+
+
+            </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
