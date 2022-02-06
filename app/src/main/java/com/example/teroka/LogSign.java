@@ -1,5 +1,6 @@
 package com.example.teroka;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
@@ -11,19 +12,41 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.teroka.ui.login.LoginActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LogSign extends AppCompatActivity implements View.OnClickListener {
 
+    private FirebaseAuth mAuth;
     TextView create_acc;
     private Button login_button;
+
+    private FirebaseAuth.AuthStateListener authStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);//will hide the title
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_sign);
+
+        mAuth = FirebaseAuth.getInstance();
+        authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = mAuth.getCurrentUser();
+                if (user!=null){
+                    Intent intent = new Intent(LogSign.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                else{
+                    Toast.makeText(LogSign.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
 
         create_acc = (TextView)findViewById(R.id.create_acc);
         login_button = (Button)findViewById(R.id.login_button);
@@ -60,5 +83,17 @@ public class LogSign extends AppCompatActivity implements View.OnClickListener {
     public void openRegisterActivity() {
         Intent intent_register = new Intent(this, RegisterActivity.class);
         startActivity(intent_register);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(authStateListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mAuth.removeAuthStateListener(authStateListener);
     }
 }

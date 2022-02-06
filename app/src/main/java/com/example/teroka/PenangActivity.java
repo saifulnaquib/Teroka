@@ -44,7 +44,7 @@ public class PenangActivity extends AppCompatActivity{
         btnAvatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PenangActivity.this, HinActivity.class);
+                Intent intent = new Intent(PenangActivity.this, AvatarActivity.class);
                 intent.putExtra("place", "Avatar Secret Garden");
                 startActivity(intent);
             }
@@ -53,7 +53,7 @@ public class PenangActivity extends AppCompatActivity{
         btnKampong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PenangActivity.this, HinActivity.class);
+                Intent intent = new Intent(PenangActivity.this, KampongActivity.class);
                 intent.putExtra("place", "Kampong Agong");
                 startActivity(intent);
             }
@@ -62,7 +62,7 @@ public class PenangActivity extends AppCompatActivity{
         btnAtv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PenangActivity.this, HinActivity.class);
+                Intent intent = new Intent(PenangActivity.this, ATV.class);
                 intent.putExtra("place", "Penang ATV Eco Balik Pulau");
                 startActivity(intent);
             }

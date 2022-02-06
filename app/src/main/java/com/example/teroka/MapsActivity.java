@@ -13,7 +13,10 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -21,6 +24,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.teroka.databinding.ActivityMapsBinding;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.karumi.dexter.Dexter;
@@ -38,6 +43,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
+    Location currentLocation;
+    FusedLocationProviderClient fusedLocationProviderClient;
+    private static final int REQUEST_CODE=101;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +53,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        //fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        //getCurrentLocation();
 
         BottomNavigationView bnv = findViewById(R.id.bottom_navigation);
 
@@ -98,7 +109,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
+/*
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         locationListener = new LocationListener() {
             @Override
@@ -108,7 +119,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.addMarker(new MarkerOptions().position(userLatLng).title("Your Location"));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(userLatLng));
             }
-        };
+        };*/
 
         //setLocationPermission();
 
@@ -118,13 +129,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng avatar = new LatLng(5.463858497865358, 100.30833245333058);
         LatLng kampong = new LatLng(5.540675348939846, 100.38012106682294);
         LatLng atv = new LatLng(5.319938896490884, 100.20477601100198);
+        //LatLng current = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
 
         mMap.addMarker(new MarkerOptions().position(hin).title("Marker in Hin Bus Depot"));
         mMap.addMarker(new MarkerOptions().position(cs).title("Marker in School of Computer Science"));
         mMap.addMarker(new MarkerOptions().position(kampong).title("Marker in Kampong Agong"));
         mMap.addMarker(new MarkerOptions().position(avatar).title("Marker in Avatar Secret Garden"));
         mMap.addMarker(new MarkerOptions().position(atv).title("Marker in Penang ATV Eco Balik Pulau"));
+        //mMap.addMarker(new MarkerOptions().position(current).title("Your Location"));
 
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(current));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(cs));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(hin));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(kampong));
@@ -132,6 +146,45 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.newLatLng(atv));
     }
 
+    private void getCurrentLocation() {
+
+        if(ActivityCompat.checkSelfPermission(
+                this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]
+                    {Manifest.permission.ACCESS_FINE_LOCATION
+                    }, REQUEST_CODE);
+            return;
+        }
+
+        Task<Location> task = fusedLocationProviderClient.getLastLocation();
+        task.addOnSuccessListener(new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+                if(location != null){
+                    currentLocation = location;
+                    Toast.makeText(getApplicationContext(), (int) currentLocation.getLatitude(), Toast.LENGTH_SHORT).show();
+                    SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+                    assert supportMapFragment != null;
+                    supportMapFragment.getMapAsync(MapsActivity.this);
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (REQUEST_CODE){
+            case REQUEST_CODE:
+                if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED)
+                {
+                    getCurrentLocation();
+                }
+                break;
+        }
+    }
+/*
     private void setLocationPermission() {
         Dexter.withActivity(this).withPermission(Manifest.permission.ACCESS_FINE_LOCATION).withListener(new PermissionListener() {
             @Override
@@ -166,5 +219,5 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 permissionToken.continuePermissionRequest();
             }
         }).check();
-    }
+    }*/
 }

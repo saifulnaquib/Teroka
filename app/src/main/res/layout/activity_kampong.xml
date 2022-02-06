@@ -15,7 +15,7 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/hin_picture"
+                android:id="@+id/kampong_picture"
                 android:layout_width="wrap_content"
                 android:layout_height="500dp"
                 android:layout_alignParentTop="true"
@@ -23,7 +23,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/hin_bus_depot" />
+                android:src="@drawable/kampong_agong" />
 
             <ImageView
                 android:id="@+id/back_button"
@@ -46,7 +46,7 @@
                 android:shadowDx="1.5"
                 android:shadowDy="1.3"
                 android:shadowRadius="1.6"
-                android:text="Hin Bus Depot"
+                android:text="Kampong Agong"
                 android:textColor="@color/white"
                 android:textSize="38sp"
 
@@ -80,15 +80,15 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
-                    android:id="@+id/hin_describe"
+                    android:id="@+id/kampong_describe"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
-                    android:lineSpacingExtra="1dp"
                     android:fontFamily="@font/roboto_slab_thin"
                     android:justificationMode="inter_word"
+                    android:lineSpacingExtra="1dp"
                     android:padding="30dp"
-                    android:text="The Hin Bus Depot is to Penang what Camden is to London. From meditation evenings to open-studio paint jams, arborist exhibitions to casual fun runs, this space makes you trendier just by signing up."
+                    android:text="An hour’s drive from Penang Bridge, nestled in the far north of the state, lies Kampung Agong. With its swaying coconut trees and traditional wooden houses surrounded by paddy fields, it’s every bit the postcard-perfect rural idyll. Formerly a coconut plantation, it was recently transformed into a tourism offering, now featuring photo spots like the hanging bird nests (inspired by the nests of a bird species commonly seen in the village), as well as a swing facing Mount Jerai that’s inspired by Bali’s famous version. Visitors can also rent a bike for RM4 each to cruise around the village."
                     android:textColor="#757373"
                     android:textSize="18dp" />
 
@@ -97,7 +97,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="250dp"
+                    android:layout_marginTop="550dp"
                     android:fontFamily="@font/roboto_slab"
                     android:text="Reviews"
                     android:textColor="@color/black"
@@ -110,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_marginRight="40dp"
-                    android:layout_marginTop="250dp"
+                    android:layout_marginTop="550dp"
                     android:layout_marginBottom="30dp"
                     android:src="@drawable/ic_baseline_add_circle_outline_24"
                     app:tint="@color/black"
@@ -122,7 +122,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
                     android:layout_marginEnd="30dp"
-                    android:layout_marginTop="325dp"
+                    android:layout_marginTop="625dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView8" />

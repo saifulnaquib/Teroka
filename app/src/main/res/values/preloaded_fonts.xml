@@ -4,6 +4,8 @@
         <item>@font/aref_ruqaa</item>
         <item>@font/lato</item>
         <item>@font/lato_bold</item>
+        <item>@font/roboto</item>
+        <item>@font/roboto_bold</item>
         <item>@font/roboto_slab</item>
         <item>@font/roboto_slab_thin</item>
     </array>

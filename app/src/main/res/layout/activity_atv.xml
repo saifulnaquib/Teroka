@@ -15,15 +15,15 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/hin_picture"
+                android:id="@+id/atv_picture"
                 android:layout_width="wrap_content"
                 android:layout_height="500dp"
                 android:layout_alignParentTop="true"
                 android:scaleType="centerCrop"
+                android:src="@drawable/atv"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/hin_bus_depot" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/back_button"
@@ -46,7 +46,8 @@
                 android:shadowDx="1.5"
                 android:shadowDy="1.3"
                 android:shadowRadius="1.6"
-                android:text="Hin Bus Depot"
+                android:text="ATV ECO
+                Balik Pulau"
                 android:textColor="@color/white"
                 android:textSize="38sp"
 
@@ -80,15 +81,15 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
-                    android:id="@+id/hin_describe"
+                    android:id="@+id/kampong_describe"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
-                    android:lineSpacingExtra="1dp"
                     android:fontFamily="@font/roboto_slab_thin"
                     android:justificationMode="inter_word"
+                    android:lineSpacingExtra="1dp"
                     android:padding="30dp"
-                    android:text="The Hin Bus Depot is to Penang what Camden is to London. From meditation evenings to open-studio paint jams, arborist exhibitions to casual fun runs, this space makes you trendier just by signing up."
+                    android:text="See the wilder, adventurous side of Balik Pulau as on an off-road ATV tour! Feel the wind on your face while we ride through paddy fields, fruit orchards, mangrove swamps, the beach terrain and the sunset view. The 10 km trail takes you to the best views that Balik Pulau has to offer. Along the way, munch on some snacks to give you a boost of energy. The ATV tour is a perfect activity for family or friends. It is also suitable for children and beginners."
                     android:textColor="#757373"
                     android:textSize="18dp" />
 
@@ -97,7 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="250dp"
+                    android:layout_marginTop="450dp"
                     android:fontFamily="@font/roboto_slab"
                     android:text="Reviews"
                     android:textColor="@color/black"
@@ -110,7 +111,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_marginRight="40dp"
-                    android:layout_marginTop="250dp"
+                    android:layout_marginTop="450dp"
                     android:layout_marginBottom="30dp"
                     android:src="@drawable/ic_baseline_add_circle_outline_24"
                     app:tint="@color/black"
@@ -122,7 +123,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
                     android:layout_marginEnd="30dp"
-                    android:layout_marginTop="325dp"
+                    android:layout_marginTop="525dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView8" />

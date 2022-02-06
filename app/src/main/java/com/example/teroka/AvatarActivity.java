@@ -25,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HinActivity extends AppCompatActivity{
+public class AvatarActivity extends AppCompatActivity{
 
     ImageView backButton;
 
@@ -42,7 +42,7 @@ public class HinActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hin);
+        setContentView(R.layout.activity_avatar);
 
         review = findViewById(R.id.click_review);
         backButton = findViewById(R.id.back_button);
@@ -58,7 +58,7 @@ public class HinActivity extends AppCompatActivity{
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HinActivity.this, PenangActivity.class);
+                Intent intent = new Intent(AvatarActivity.this, PenangActivity.class);
                 startActivity(intent);
             }
         });
@@ -66,13 +66,13 @@ public class HinActivity extends AppCompatActivity{
         review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HinActivity.this, ReviewActivity.class);
+                Intent intent = new Intent(AvatarActivity.this, ReviewActivity.class);
                 startActivity(intent);
             }
         });
 
         postList = new ArrayList<>();
-        postAdapter = new PostAdapter(HinActivity.this, postList);
+        postAdapter = new PostAdapter(AvatarActivity.this, postList);
         recyclerView.setAdapter(postAdapter);
 
         if (getIntent().getExtras() != null){
@@ -102,7 +102,7 @@ public class HinActivity extends AppCompatActivity{
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(HinActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(AvatarActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

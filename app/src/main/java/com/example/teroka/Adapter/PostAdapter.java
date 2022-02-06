@@ -217,11 +217,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
                 long numberofLikes = snapshot.getChildrenCount();
                 int NOL = (int) numberofLikes;
                 if (NOL > 1){
-                    likes.setText(snapshot.getChildrenCount()+ "likes");
+                    likes.setText(snapshot.getChildrenCount()+ " likes");
                 }else if (NOL == 0){
                     likes.setText("0 likes");
                 }else {
-                    likes.setText(snapshot.getChildrenCount()+ "like");
+                    likes.setText(snapshot.getChildrenCount()+ " like");
                 }
             }
 
@@ -240,11 +240,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
                 long numberofDislikes = snapshot.getChildrenCount();
                 int NOD = (int) numberofDislikes;
                 if (NOD > 1){
-                    dislikes.setText(snapshot.getChildrenCount()+ "dislikes");
+                    dislikes.setText(snapshot.getChildrenCount()+ " dislikes");
                 }else if (NOD == 0){
                     dislikes.setText("0 dislikes");
                 }else {
-                    dislikes.setText(snapshot.getChildrenCount()+ "dislike");
+                    dislikes.setText(snapshot.getChildrenCount()+ " dislike");
                 }
             }
 
