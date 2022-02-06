@@ -43,7 +43,7 @@ public class PlannerActivity extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.map:
-                        startActivity(new Intent(getApplicationContext(),SuggestPlaceActivity.class));
+                        startActivity(new Intent(getApplicationContext(),MapsActivity.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.planner:
