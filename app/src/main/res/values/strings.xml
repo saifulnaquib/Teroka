@@ -34,6 +34,8 @@
     <string name="reset">Reset</string>
     <string name="email">Email</string>
     <string name="explore">Explore</string>
+    <string name="addbutton1">+ Add Trip</string>
+    <string name="deletebutton1">- Delete Trip</string>
 
 
 </resources>

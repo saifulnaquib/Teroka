@@ -43,6 +43,10 @@
             android:name=".PlannerActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".AddModifyTrip"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
             android:name=".SuggestPlaceActivity"
             android:screenOrientation="portrait" />
         <activity

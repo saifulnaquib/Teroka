@@ -48,4 +48,48 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="510dp" />
 
+    <Button
+        android:id="@+id/paddbutton1"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="150dp"
+        android:backgroundTint="#30C667"
+        android:backgroundTintMode="src_atop"
+        android:fontFamily="@font/lato"
+        android:text="@string/addbutton1"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.367"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/pdeletebutton1"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="150dp"
+        android:backgroundTint="#F02424"
+        android:backgroundTintMode="src_atop"
+        android:fontFamily="@font/lato"
+        android:text="@string/deletebutton1"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.367"
+        tools:ignore="TouchTargetSizeCheck" />
+
+
+
 </RelativeLayout>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:contentInsetStart="0dp">
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Travel Itinerary"
+                    android:textColor="#EC5D5D"
+                    android:textSize="30dp"
+                    android:textStyle="bold"/>
+
+
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+        <RadioGroup
+            android:id="@+id/groupradio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="05dp"
+            android:layout_marginTop="05dp"
+            android:layout_marginEnd="05dp"
+            android:layout_marginBottom="05dp"
+            android:orientation="vertical"
+            android:buttonTint="@color/black"
+            android:backgroundTint="@color/black">
+
+            <TextView
+                android:id="@+id/text99"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/choosetrip"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp"
+                android:text="Place Preview"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+            <RadioButton
+                android:id="@+id/hinbusdepot1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/choosetrip"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:text="Hin Bus Depot"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:checked="true"/>
+
+            <RadioButton
+                android:id="@+id/avatarsecretgarden1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Avatar Secret Garden"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+            <RadioButton
+                android:id="@+id/kampongagong1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Kampong Agong"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+            <RadioButton
+                android:id="@+id/penangatv1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Penang ATV Balik Pulau"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+        </RadioGroup>
+
+        <ImageView
+            android:id="@+id/imageView30"
+            android:layout_width="900px"
+            android:layout_height="300px"
+            android:layout_below="@+id/choosetrip"
+            android:layout_marginTop="50dp"
+            android:layout_toRightOf="@+id/groupradio1" />
+
+        <Button
+            android:id="@+id/choosetrip"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/radius_border_button"
+            android:paddingHorizontal="70dp"
+            android:paddingVertical="15dp"
+            android:text="Fill in your info"
+            android:textColor="@drawable/radius_border_button_text" />
+
+        <EditText
+            android:id="@+id/edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/custom_config"
+            android:layout_below="@+id/groupradio1"
+            android:background="#FFFFFF"
+            android:gravity="top"
+            android:hint="Type in Your Desired Place and Time"
+            android:inputType="textMultiLine"
+            android:padding="20dp"
+            android:textColorHint="#000000"
+            android:textSize="25dp" />
+
+
+
+        <LinearLayout
+            android:id="@+id/custom_config"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/deleteTrip"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="20dp"
+            android:onClick="chooseDate">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/cal"/>
+
+            <TextView
+                android:id="@+id/dateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:text="29/05/2020"
+                android:textColor="@color/black"/>/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/deleteTrip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/save_btn"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="20dp"
+            android:onClick="deleteTrip"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/del"
+                app:tint="#EC5D5D"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="#EC5D5D"
+                android:text="Delete Trip"/>
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/save_btn"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:background="#EC5D5D"
+            android:onClick="saveTrip"
+            android:paddingVertical="15dp"
+            android:text="SAVE"
+            android:textColor="#FFFFFF" />
+
+    </RelativeLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

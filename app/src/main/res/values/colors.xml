@@ -9,4 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="appbgclr">#7D5C5C</color>
     <color name="buttoncolour">#000</color>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorAccent">#EC5D5D</color>
+
 </resources>

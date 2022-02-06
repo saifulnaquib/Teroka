@@ -1,20 +1,20 @@
 {
   "project_info": {
-    "project_number": "383375293060",
-    "project_id": "teroka-3752b",
-    "storage_bucket": "teroka-3752b.appspot.com"
+    "project_number": "161607923162",
+    "project_id": "teroka-22a85",
+    "storage_bucket": "teroka-22a85.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:383375293060:android:6a7dd7b64a69dbaed920d1",
+        "mobilesdk_app_id": "1:161607923162:android:21d57ed18d4ffb03593ce3",
         "android_client_info": {
           "package_name": "com.example.teroka"
         }
       },
       "oauth_client": [
         {
-          "client_id": "383375293060-hjb1i2onprv3jmtlb4kojta4mchnls9q.apps.googleusercontent.com",
+          "client_id": "161607923162-v14cgqds4ugb2euf91l936f84hr2nqbl.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.teroka",
@@ -22,20 +22,20 @@
           }
         },
         {
-          "client_id": "383375293060-mc3r0ducbki1kllutun6j0oqa18r9d2t.apps.googleusercontent.com",
+          "client_id": "161607923162-fhtecntr40ahnei91qqnufs4lu0u398p.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAjtVP6DP3rmldX8LADThpR-dEFh2azYQQ"
+          "current_key": "AIzaSyBF8cvoQHaz74qR5PMz1zicKYERrd6OpJo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "383375293060-mc3r0ducbki1kllutun6j0oqa18r9d2t.apps.googleusercontent.com",
+              "client_id": "161607923162-fhtecntr40ahnei91qqnufs4lu0u398p.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
